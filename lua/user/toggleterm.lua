@@ -4,29 +4,39 @@ if not status_ok then
 end
 
 toggleterm.setup({
-	size = 20,
-	open_mapping = [[<c-\>]],
-	hide_numbers = true,
-	shade_terminals = true,
-	shading_factor = 2,
-	start_in_insert = true,
-	insert_mappings = true,
-	persist_size = true,
 	direction = "float",
-	close_on_exit = true,
-	shell = vim.o.shell,
-	float_opts = {
-		border = "curved",
-	},
+	float_opts = { border = "curved" },
+	hidden = true,
 })
 
-function _G.set_terminal_keymaps()
-	local opts = { noremap = true }
-	-- vim.api.nvim_buf_set_keymap(0, 't', '<esc>', [[<C-\><C-n>]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], opts)
-	vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], opts)
-end
+local Terminal = require("toggleterm.terminal").Terminal
+local opts = { noremap = true, silent = true }
 
-vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
+local term = Terminal:new({
+	shell = vim.o.shell,
+	start_in_insert = true,
+	on_open = function(t)
+		vim.cmd("startinsert")
+		vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", [[<C-\><C-n>]], opts)
+	end,
+})
+
+local lazygit = Terminal:new({
+	cmd = "lazygit",
+	on_open = function(t)
+		vim.api.nvim_buf_set_keymap(0, "t", "q", "<Esc>", opts)
+		vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", "q", opts)
+	end,
+})
+
+vim.keymap.set("n", [[<C-\>]], function()
+	term:toggle()
+end, opts)
+
+vim.keymap.set("t", [[<C-\>]], function()
+	term:toggle()
+end, opts)
+
+vim.keymap.set("n", "<leader>gg", function()
+	lazygit:toggle()
+end, opts)

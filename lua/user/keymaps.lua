@@ -75,7 +75,6 @@ keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 -- Git
-keymap("n", "<leader>gg", "<cmd>LazyGitCurrentFile<CR>", opts)
 keymap("n", "<leader>gs", "<cmd>Gitsigns stage_hunk<CR>", opts)
 
 -- Comment

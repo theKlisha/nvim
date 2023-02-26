@@ -23,10 +23,6 @@ local term = Terminal:new({
 
 local lazygit = Terminal:new({
 	cmd = "lazygit",
-	on_open = function(t)
-		vim.api.nvim_buf_set_keymap(0, "t", "q", "<Esc>", opts)
-		vim.api.nvim_buf_set_keymap(0, "t", "<Esc>", "q", opts)
-	end,
 })
 
 vim.keymap.set("n", [[<C-\>]], function()

@@ -1,6 +1,8 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
+        version = nil,
+        commit = "master", -- use latest
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
 			-- "mason.nvim",
@@ -30,19 +32,6 @@ return {
 			-- LSP Server Settings
 			servers = {
 				jsonls = {},
-				lua_ls = {
-					-- mason = false, -- set to false if you don't want this server to be installed with mason
-					settings = {
-						Lua = {
-							workspace = {
-								checkThirdParty = false,
-							},
-							completion = {
-								callSnippet = "Replace",
-							},
-						},
-					},
-				},
 			},
 
 			-- you can do any additional lsp server setup here

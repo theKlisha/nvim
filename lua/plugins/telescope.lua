@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	version = false,
 	cmd = "Telescope",
-    keys = function()
+	keys = function()
 		local telescope = function(name, opts)
 			return function()
 				require("telescope.builtin")[name](opts)

@@ -36,48 +36,46 @@ local function button(sc, txt, keybind)
 end
 
 return {
-	{
-		"goolord/alpha-nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		event = "VimEnter",
-		opts = {
-			layout = {
-				{ type = "padding", val = 5 },
-				{
-					type = "text",
-					val = banner,
-					opts = {
-						position = "center",
-						hl = "Type",
-					},
+	"goolord/alpha-nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
+	event = "VimEnter",
+	opts = {
+		layout = {
+			{ type = "padding", val = 5 },
+			{
+				type = "text",
+				val = banner,
+				opts = {
+					position = "center",
+					hl = "Type",
 				},
-				{ type = "padding", val = 1 },
-				{
-					type = "text",
-					val = "- Klisha -",
-					opts = {
-						position = "center",
-						hl = "LineNr",
-					},
-				},
-				{ type = "padding", val = 2 },
-				{
-					type = "group",
-					val = {
-						button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-						button("e", " " .. " New file", ":ene <CR>"),
-						button("p", " " .. " Find project", ":Telescope projects <CR>"),
-						button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-						button("t", "󱎸 " .. " Find text", ":Telescope live_grep <CR>"),
-						button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-					},
-					opts = {
-						spacing = 1,
-					},
-				},
-				{ type = "padding", val = 2 },
-				button("q", " " .. " Quit", ":qa <CR>"),
 			},
+			{ type = "padding", val = 1 },
+			{
+				type = "text",
+				val = "- Klisha -",
+				opts = {
+					position = "center",
+					hl = "LineNr",
+				},
+			},
+			{ type = "padding", val = 2 },
+			{
+				type = "group",
+				val = {
+					button("f", " " .. " Find file", ":Telescope find_files <CR>"),
+					button("e", " " .. " New file", ":ene <CR>"),
+					button("p", " " .. " Find project", ":Telescope projects <CR>"),
+					button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
+					button("t", "󱎸 " .. " Find text", ":Telescope live_grep <CR>"),
+					button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
+				},
+				opts = {
+					spacing = 1,
+				},
+			},
+			{ type = "padding", val = 2 },
+			button("q", " " .. " Quit", ":qa <CR>"),
 		},
 	},
 }

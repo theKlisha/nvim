@@ -30,7 +30,13 @@ return {
 
 		-- LSP Server Settings
 		servers = {
-			jsonls = {},
+			volar = {
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+				end,
+				filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" },
+				takeOverMode = { enabled = true },
+			},
 		},
 
 		-- you can do any additional lsp server setup here

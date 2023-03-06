@@ -3,6 +3,7 @@ return {
 	version = nil,
 	commit = "master", -- use latest
 	event = { "BufReadPre", "BufNewFile" },
+	cmd = { "LspInfo" },
 	dependencies = {
 		-- "mason.nvim",
 		-- "hrsh7th/nvim-cmp",
@@ -30,6 +31,11 @@ return {
 
 		-- LSP Server Settings
 		servers = {
+			lua_ls = {
+				on_attach = function(client)
+					client.server_capabilities.documentFormattingProvider = false
+				end,
+			},
 			volar = {
 				on_attach = function(client)
 					client.server_capabilities.documentFormattingProvider = false
@@ -54,7 +60,11 @@ return {
 
 	config = function(_, opts)
 		local servers = opts.servers
-		local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+		local capabilities = vim.tbl_extend(
+			"keep",
+			require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+			require("lsp-status").capabilities
+		)
 
 		local function setup(server)
 			local server_opts = vim.tbl_deep_extend("force", {
@@ -73,31 +83,44 @@ return {
 			require("lspconfig")[server].setup(server_opts)
 		end
 
-		-- temp fix for lspconfig rename
-		-- https://github.com/neovim/nvim-lspconfig/pull/2439
-		local mappings = require("mason-lspconfig.mappings.server")
-		if not mappings.lspconfig_to_package.lua_ls then
-			mappings.lspconfig_to_package.lua_ls = "lua-language-server"
-			mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
-		end
+		-- -- temp fix for lspconfig rename
+		-- -- https://github.com/neovim/nvim-lspconfig/pull/2439
+		-- local mappings = require("mason-lspconfig.mappings.server")
+		-- if not mappings.lspconfig_to_package.lua_ls then
+		-- 	mappings.lspconfig_to_package.lua_ls = "lua-language-server"
+		-- 	mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
+		-- end
 
-		local mlsp = require("mason-lspconfig")
-		local available = mlsp.get_available_servers()
+		-- local mlsp = require("mason-lspconfig")
+		-- local available = mlsp.get_available_servers()
 
-		local ensure_installed = {}
-		for server, server_opts in pairs(servers) do
-			if server_opts then
-				server_opts = server_opts == true and {} or server_opts
-				-- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
-				if server_opts.mason == false or not vim.tbl_contains(available, server) then
-					setup(server)
-				else
-					ensure_installed[#ensure_installed + 1] = server
-				end
-			end
-		end
+		-- local ensure_installed = {}
+		-- for server, server_opts in pairs(servers) do
+		-- 	if server_opts then
+		-- 		server_opts = server_opts == true and {} or server_opts
+		-- 		-- run manual setup if mason=false or if this is a server that cannot be installed with mason-lspconfig
+		-- 		if server_opts.mason == false or not vim.tbl_contains(available, server) then
+		-- 			setup(server)
+		-- 		else
+		-- 			ensure_installed[#ensure_installed + 1] = server
+		-- 		end
+		-- 	end
+		-- end
 
-		require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = "rounded",
+		})
+
+		-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+		-- 	border = "rounded",
+		-- })
+
+		-- vim.diagnostic.config({
+		-- 	float = { border = "rounded" },
+		-- })
+
+		require("lspconfig.ui.windows").default_options.border = "rounded"
+		-- require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup_handlers({ setup })
 	end,
 }

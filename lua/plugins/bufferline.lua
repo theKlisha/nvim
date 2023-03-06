@@ -1,12 +1,12 @@
 return {
 	"akinsho/bufferline.nvim",
-	event = "BufRead",
-	keys = {
-		{ "<leader>]", ":BufferLineCycleNext<CR>" },
-		{ "<leader>[", ":BufferLineCyclePrev<CR>" },
-		{ "<leader>}", ":BufferLineMoveNext<CR>" },
-		{ "<leader>{", ":BufferLineMovePrev<CR>" },
-		{ "<leader>bs", ":BufferLineSortByRelativeDirectory<CR>" },
+	event = "VimEnter",
+	cmd = {
+		"BufferLineCycleNext",
+		"BufferLineCyclePrev",
+		"BufferLineMoveNext",
+		"BufferLineMovePrev",
+		"BufferLineSortByRelativeDirectory",
 	},
 	opts = {
 		options = {

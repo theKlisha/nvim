@@ -8,22 +8,7 @@ return {
 	},
 	{
 		"echasnovski/mini.bufremove",
-		keys = {
-			{
-				"<leader>q",
-				function()
-					require("mini.bufremove").delete(0, false)
-				end,
-				desc = "Delete Buffer",
-			},
-			{
-				"<leader>Q",
-				function()
-					require("mini.bufremove").delete(0, true)
-				end,
-				desc = "Delete Buffer (Force)",
-			},
-		},
+        lazy = true,
 		config = function(_, opts)
 			require("mini.bufremove").setup(opts)
 		end,
@@ -39,9 +24,6 @@ return {
 
 				-- Toggle comment on current line
 				comment_line = "<leader>/",
-
-				-- Define 'comment' textobject (like `dgc` - delete whole comment block)
-				-- textobject = "<leader>/",
 			},
 		},
 		config = function(_, opts)

@@ -8,7 +8,7 @@ return {
 	},
 	{
 		"echasnovski/mini.bufremove",
-        lazy = true,
+		lazy = true,
 		config = function(_, opts)
 			require("mini.bufremove").setup(opts)
 		end,

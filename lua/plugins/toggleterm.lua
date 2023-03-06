@@ -13,7 +13,7 @@ return {
 				link = "FloatNormal",
 			},
 			FloatBorder = {
-                link = "FloatBorder"
+				link = "FloatBorder",
 			},
 		},
 	},

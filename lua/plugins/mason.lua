@@ -13,9 +13,13 @@ return {
 			"html-lsp",
 			"json-lsp",
 		},
+		ui = {
+			border = "rounded",
+		},
 	},
 	config = function(plugin, opts)
 		require("mason").setup(opts)
+
 		local mr = require("mason-registry")
 		for _, tool in ipairs(opts.ensure_installed) do
 			local p = mr.get_package(tool)

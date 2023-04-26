@@ -42,7 +42,7 @@ return {
 	cmd = "Alpha",
 	opts = {
 		layout = {
-			{ type = "padding", val = 5 },
+			{ type = "padding", val = 20 },
 			{
 				type = "text",
 				val = banner,
@@ -60,23 +60,6 @@ return {
 					hl = "LineNr",
 				},
 			},
-			{ type = "padding", val = 2 },
-			{
-				type = "group",
-				val = {
-					button("f", " " .. " Find file", ":Telescope find_files <CR>"),
-					button("e", " " .. " New file", ":ene <CR>"),
-					button("p", " " .. " Find project", ":Telescope projects <CR>"),
-					button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
-					button("t", "󱎸 " .. " Find text", ":Telescope live_grep <CR>"),
-					button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
-				},
-				opts = {
-					spacing = 1,
-				},
-			},
-			{ type = "padding", val = 2 },
-			button("q", " " .. " Quit", ":qa <CR>"),
 		},
 	},
 }

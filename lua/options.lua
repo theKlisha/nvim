@@ -38,6 +38,7 @@ vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.laststatus = 3 -- only the last window will always have a status line
 vim.opt.linebreak = true
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
+vim.opt.relativenumber = true -- set relative line numbers
 vim.opt.number = true -- set numbered lines
 vim.opt.numberwidth = 4 -- minimal number of columns to use for the line number {default 4}
 vim.opt.pumheight = 10 -- pop up menu height

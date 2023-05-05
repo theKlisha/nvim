@@ -22,10 +22,14 @@ return {
 						return require("telescope.actions").close(...)
 					end,
 				},
-				n = {
-					["q"] = function(...)
-						return require("telescope.actions").close(...)
-					end,
+			},
+			pickers = {
+				buffers = {
+					mappings = {
+						i = {
+							["<C-x>"] = actions.delete_buffer,
+						},
+					},
 				},
 			},
 		},

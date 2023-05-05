@@ -42,6 +42,36 @@ return {
 				end,
 				filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue" },
 				takeOverMode = { enabled = true },
+				commands = {
+					-- _typescript.applyRenameFile is not part of the LSP standard
+					TSRenameFile = {
+						function()
+							local source_file = vim.api.nvim_buf_get_name(0)
+
+							vim.ui.input({
+								prompt = "Source : ",
+								completion = "file",
+								default = source_file,
+							}, function(target_file)
+								if target_file ~= nil and target_file ~= source_file then
+									local params = {
+										command = "_typescript.applyRenameFile",
+										arguments = {
+											{
+												sourceUri = source_file,
+												targetUri = target_file,
+											},
+										},
+										title = "",
+									}
+									vim.lsp.buf.execute_command(params)
+									vim.lsp.util.rename(source_file, target_file, {})
+								end
+							end)
+						end,
+						description = "Rename current typescript file",
+					},
+				},
 			},
 		},
 

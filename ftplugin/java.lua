@@ -6,7 +6,7 @@ local config = {
 		java = {
 			format = {
 				settings = {
-					url = "/Users/grzegorz/.config/nvim/ext/javaFormat.xml",
+					url = "~/.config/nvim/ext/java/javaFormat.xml",
 				},
 			},
 		},

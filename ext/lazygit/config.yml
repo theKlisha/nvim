@@ -1,0 +1,17 @@
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md#default
+
+gui:
+  theme:
+    activeBorderColor:
+      - red
+      - bold
+    inactiveBorderColor:
+      - "#505050"
+    optionsTextColor:
+      - blue
+    selectedLineBgColor:
+      - "#404040"
+git:
+    showGraph: "always"
+os:
+  editCommandTemplate: "nvr -cc vsplit --remote-wait +'set bufhidden=wipe' {{filename}}"

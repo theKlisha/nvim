@@ -8,7 +8,7 @@ return {
 	},
 	{
 		"echasnovski/mini.bufremove",
-		lazy = true,
+        lazy = true,
 		config = function(_, opts)
 			require("mini.bufremove").setup(opts)
 		end,
@@ -20,10 +20,10 @@ return {
 			mappings = {
 				-- Toggle comment (like `gcip` - comment inner paragraph) for both
 				-- Normal and Visual modes
-				comment = "<leader>/",
+				comment = "?",
 
 				-- Toggle comment on current line
-				comment_line = "<leader>/",
+				comment_line = "?",
 			},
 		},
 		config = function(_, opts)

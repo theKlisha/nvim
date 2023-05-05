@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("options")
+require("remaps")
 
 require("lazy").setup("plugins", {
 	ui = { border = "rounded" },

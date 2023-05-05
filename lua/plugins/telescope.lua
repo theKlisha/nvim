@@ -3,24 +3,33 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	version = false,
 	cmd = "Telescope",
-	opts = {
-		defaults = {
-			prompt_prefix = " ",
-			selection_caret = " ",
-			mappings = {
-				i = {
-					["<C-t>"] = function(...)
-						return require("trouble.providers.telescope").open_with_trouble(...)
-					end,
-					["<S-Down>"] = function(...)
-						return require("telescope.actions").cycle_history_next(...)
-					end,
-					["<S-Up>"] = function(...)
-						return require("telescope.actions").cycle_history_prev(...)
-					end,
-					["<Esc>"] = function(...)
-						return require("telescope.actions").close(...)
-					end,
+	opts = function()
+		local actions = require("telescope.actions")
+
+		return {
+			defaults = {
+				prompt_prefix = " ",
+				selection_caret = " ",
+				path_display = { "smart" },
+				mappings = {
+					i = {
+						["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+						["<C-j>"] = actions.move_selection_next,
+						["<C-k>"] = actions.move_selection_previous,
+						["<C-J>"] = actions.cycle_history_next,
+						["<C-K>"] = actions.cycle_history_prev,
+						["<C-v>"] = actions.file_vsplit,
+						["<C-c>"] = actions.close,
+					},
+					n = {
+						["t"] = require("trouble.providers.telescope").open_with_trouble,
+						["j"] = actions.move_selection_next,
+						["k"] = actions.move_selection_previous,
+						["J"] = actions.cycle_history_next,
+						["K"] = actions.cycle_history_prev,
+						["v"] = actions.file_vsplit,
+						["<C-c>"] = actions.close,
+					},
 				},
 			},
 			pickers = {
@@ -29,6 +38,9 @@ return {
 						i = {
 							["<C-x>"] = actions.delete_buffer,
 						},
+                        n = {
+                            ["x"] = actions.delete_buffer,
+                        },
 					},
 				},
 			},

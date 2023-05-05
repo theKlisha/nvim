@@ -113,14 +113,6 @@ return {
 			require("lspconfig")[server].setup(server_opts)
 		end
 
-		-- -- temp fix for lspconfig rename
-		-- -- https://github.com/neovim/nvim-lspconfig/pull/2439
-		-- local mappings = require("mason-lspconfig.mappings.server")
-		-- if not mappings.lspconfig_to_package.lua_ls then
-		-- 	mappings.lspconfig_to_package.lua_ls = "lua-language-server"
-		-- 	mappings.package_to_lspconfig["lua-language-server"] = "lua_ls"
-		-- end
-
 		-- local mlsp = require("mason-lspconfig")
 		-- local available = mlsp.get_available_servers()
 
@@ -137,17 +129,8 @@ return {
 		-- 	end
 		-- end
 
-		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-			border = "rounded",
-		})
-
-		-- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-		-- 	border = "rounded",
-		-- })
-
-		-- vim.diagnostic.config({
-		-- 	float = { border = "rounded" },
-		-- })
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
 
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 		-- require("mason-lspconfig").setup({ ensure_installed = ensure_installed })

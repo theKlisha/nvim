@@ -6,16 +6,6 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	cmd = "Neotree",
-	keys = {
-		{
-			"<leader>e",
-			function()
-				require("neo-tree.command").execute({ focus = true, dir = vim.loop.cwd() })
-			end,
-			desc = "Explorer NeoTree (cwd)",
-			remap = true,
-		},
-	},
 	deactivate = function()
 		vim.cmd([[Neotree close]])
 	end,

@@ -1,6 +1,9 @@
 return {
 	"nvim-telescope/telescope.nvim",
-	dependencies = { "nvim-lua/plenary.nvim" },
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"cljoly/telescope-repo.nvim",
+	},
 	version = false,
 	cmd = "Telescope",
 	opts = function()
@@ -44,6 +47,22 @@ return {
 					},
 				},
 			},
-		},
-	},
+			extensions = {
+				repo = {
+					list = {
+						fd_opts = {
+							"--no-ignore-vcs",
+						},
+						search_dirs = {
+							"~/repos/",
+						},
+					},
+				},
+			},
+		}
+	end,
+	config = function(_, opts)
+		require("telescope").setup(opts)
+		-- require("telescope").load_extension("repo")
+	end,
 }

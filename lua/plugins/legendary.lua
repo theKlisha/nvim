@@ -85,7 +85,6 @@ return {
 
 			-- Misc
 			{ "=", format_buffer, description = "Format buffer (LSP)" },
-			{ "<c-\\>", "<cmd>OolongToggleShell<cr>", description = "Toggle terminal", mode = { "n", "t" } },
 
 			-- Space mode
 			{ "<leader>f", open_file_picker, description = "Open file picker" },
@@ -124,7 +123,7 @@ return {
 			{ "mQ", delete_buffer_force, desc = "Delete Buffer (Force)" },
 
 			-- Source control mode
-			{ "ss", "<cmd>OolongToggleLazygit<cr>", description = "Open lazygit" },
+            { "ss", sh([[tmux new-window lazygit -ucd ~/.config/nvim/ext/lazygit/]]), description = "Open lazygit" },
 			{ "sa", git_stage_hunk, description = "Git stage hunk" },
 			{ "sA", git_stage_buffer, description = "Git stage buffer" },
 			{ "sr", git_reset_hunk, description = "Git reset hunk" },

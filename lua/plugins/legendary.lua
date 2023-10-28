@@ -70,6 +70,12 @@ local exec = function(cmd)
 	end
 end
 
+local sh = function(cmd)
+    return function()
+        vim.fn.system(cmd)
+    end
+end
+
 return {
 	"mrjones2014/legendary.nvim",
 	event = "VimEnter",
@@ -130,7 +136,7 @@ return {
 			-- { telescope("help_tags"), description = "Find help pages" },
 			-- { telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
 			-- { telescope("oldfiles"), description = "Find Recent files" },
-			{ exec([[e $MYVIMRC]]), description = "Open configuration" },
+			{ sh([[tmux new-window -n "nvim config" -c ~/.config/nvim/ nvim]]), description = "Open configuration" },
 			{ exec([[Lazy]]), description = "Open plugin manager" },
 			{ exec([[Alpha]]), description = "Open home screen" },
 			{ exec([[LspInfo]]), description = "Open LSP info" },

@@ -45,12 +45,6 @@ local open_file_picker_at_cwd = function()
 	require("telescope.builtin").find_files({ cwd = vim.fn.getcwd() })
 end
 
-local open_project_picker = function()
-	require("telescope").extensions.repo.list({
-		file_ignore_patterns = { "^" .. vim.env.HOME .. "/%.cache/", "^" .. vim.env.HOME .. "/%.cargo/" },
-	})
-end
-
 local open_buffer_picker = function()
 	local opts = require("telescope.themes").get_dropdown({ shorten_path = true })
 	require("telescope.builtin").buffers(opts)
@@ -90,7 +84,6 @@ return {
 			{ "<leader>f", open_file_picker, description = "Open file picker" },
 			{ "<leader>F", open_file_picker_at_cwd, description = "Open file picker at current working directory" }, -- FIXME
 			{ "<leader>e", open_file_tree, description = "Open file tree" },
-			{ "<leader>p", open_project_picker, desc = "Open project picker" },
 			{ "<leader>b", open_buffer_picker, description = "Open jumplist picker" },
 			{ "<leader>k", vim.lsp.buf.hover, description = "Show documentation for item under cursor in a popup (LSP)" },
 			{ "<leader>i", vim.lsp.buf.signature_help, description = "Show signature information (LSP)" },

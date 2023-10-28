@@ -2,7 +2,7 @@ return {
 	"folke/which-key.nvim",
 	config = function()
 		vim.o.timeout = true
-		vim.o.timeoutlen = 300
+		vim.o.timeoutlen = 1000
 		require("which-key").setup({
 			layout = {
 				height = { min = 4, max = 25 },
@@ -13,10 +13,8 @@ return {
 			window = {
 				border = "rounded",
 				position = "bottom",
-				margin = (function()
-					return { 2, vim.o.columns - 64, 1, 3 }
-				end)(),
-				padding = { 1, 0, 1, 0 },
+				margin = { 0, 4, 2, 3 },
+				padding = { 0, 0, 0, 0 },
 				winblend = 0,
 			},
 		})

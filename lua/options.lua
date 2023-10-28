@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+vim.opt.autoread = true -- reload files changed outside vim
 vim.opt.backup = false -- creates a backup file
 vim.opt.clipboard = "unnamedplus" -- allows neovim to access the system clipboard
 vim.opt.cmdheight = 1 -- more space in the neovim command line for displaying messages
@@ -30,6 +31,7 @@ vim.opt.fillchars = {
 	-- vertright = '┣',
 	-- verthoriz = '╋'
 }
+vim.opt.foldmethod = "indent" -- fold based on indent level
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done
 vim.opt.guifont = "monospace:h17" -- the font used in graphical neovim applications
 vim.opt.hlsearch = true -- highlight all matches on previous search pattern
@@ -38,10 +40,11 @@ vim.opt.iskeyword:append("-") -- treats words with `-` as single words
 vim.opt.laststatus = 3 -- only the last window will always have a status line
 vim.opt.linebreak = true
 vim.opt.mouse = "a" -- allow the mouse to be used in neovim
-vim.opt.relativenumber = true -- set relative line numbers
+vim.opt.foldenable = false -- don't fold by default
 vim.opt.number = true -- set numbered lines
 vim.opt.numberwidth = 4 -- minimal number of columns to use for the line number {default 4}
 vim.opt.pumheight = 10 -- pop up menu height
+vim.opt.relativenumber = true -- set relative line numbers
 vim.opt.ruler = false -- hide the line and column number of the cursor position
 vim.opt.scrolloff = 8 -- minimal number of screen lines to keep above and below the cursor
 vim.opt.shiftwidth = 4 -- the number of spaces inserted for each indentation

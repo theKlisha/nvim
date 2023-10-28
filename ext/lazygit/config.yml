@@ -18,4 +18,5 @@ git:
     pager: delta --dark --paging=never
 
 os:
-  editCommandTemplate: "nvim {{filename}}"
+  edit: "nvim {{filename}}"
+  editAtLine: "nvim +{{line}} {{filename}}"

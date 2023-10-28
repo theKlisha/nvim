@@ -3,6 +3,15 @@ return {
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"cljoly/telescope-repo.nvim",
+		{
+			"nvim-telescope/telescope-fzf-native.nvim",
+			-- NOTE: If you are having trouble with this installation,
+			--       refer to the README for telescope-fzf-native for more instructions.
+			build = "make",
+			cond = function()
+				return vim.fn.executable("make") == 1
+			end,
+		},
 	},
 	version = false,
 	cmd = "Telescope",
@@ -41,9 +50,9 @@ return {
 						i = {
 							["<C-x>"] = actions.delete_buffer,
 						},
-                        n = {
-                            ["x"] = actions.delete_buffer,
-                        },
+						n = {
+							["x"] = actions.delete_buffer,
+						},
 					},
 				},
 			},

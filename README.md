@@ -1,8 +1,8 @@
 # nvim
-Neovim configuration featuring language-server-protocol support and lazy loading of plugins
+Yet another personal neovim configuration
 
 ## Setup
 Just clone it to neovim config directory
 ```
-git clone git@github.com:Grzdaczek/nvim.git ~/.config/nvim/
+git clone git@github.com:theKlisha/nvim.git ~/.config/nvim/
 ```

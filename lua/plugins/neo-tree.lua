@@ -23,7 +23,7 @@ return {
 		popup_border_style = "rounded",
 		filesystem = {
 			bind_to_cwd = false,
-			follow_current_file = true,
+			follow_current_file = { enabled = true },
 		},
 		window = {
 			width = 45,
@@ -81,7 +81,7 @@ return {
 				},
 			},
 			buffers = {
-				follow_current_file = true, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
+				follow_current_file = { enabled = true }, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
 			},
 		},
 	},

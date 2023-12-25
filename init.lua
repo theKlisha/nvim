@@ -16,7 +16,7 @@ require("remaps")
 
 require("lazy").setup("plugins", {
 	ui = { border = "rounded" },
-	colorscheme = { "melange" },
+	colorscheme = { "oolong" },
 	defaults = {
 		version = "*", -- enable this to try installing the latest stable versions of plugins
 	},

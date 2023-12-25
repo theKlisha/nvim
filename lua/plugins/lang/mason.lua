@@ -12,7 +12,7 @@ return {
 			"css-lsp",
 			"html-lsp",
 			"json-lsp",
-            "jdtls",
+			"jdtls",
 		},
 		ui = {
 			border = "rounded",

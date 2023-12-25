@@ -1,8 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = {
-		"nvim-lua/lsp-status.nvim",
-	},
+	dependencies = { "nvim-lua/lsp-status.nvim" },
 	event = "VimEnter",
 	opts = {
 		options = {
@@ -10,18 +8,6 @@ return {
 			theme = "auto",
 			component_separators = { left = "│", right = "│" },
 			section_separators = { left = "▒", right = "▒" },
-			disabled_filetypes = {
-				statusline = {},
-				winbar = {},
-			},
-			ignore_focus = {},
-			always_divide_middle = true,
-			globalstatus = false,
-			refresh = {
-				statusline = 1000,
-				tabline = 1000,
-				winbar = 1000,
-			},
 		},
 		sections = {
 			lualine_a = { "mode" },
@@ -39,9 +25,5 @@ return {
 			lualine_y = {},
 			lualine_z = {},
 		},
-		tabline = {},
-		winbar = {},
-		inactive_winbar = {},
-		extensions = {},
 	},
 }

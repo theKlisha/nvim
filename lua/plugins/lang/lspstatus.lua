@@ -18,7 +18,7 @@ return {
 		update_interval = 100,
 	},
 	config = function(_, opts)
-        require("lsp-status").config(opts)
+		require("lsp-status").config(opts)
 		require("lsp-status").register_progress()
 	end,
 }

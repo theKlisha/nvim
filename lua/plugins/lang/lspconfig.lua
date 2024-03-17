@@ -73,6 +73,22 @@ return {
 					},
 				},
 			},
+			yamlls = {
+				settings = {
+					yaml = {
+						format = {
+							enable = true,
+							singleQuote = true,
+						},
+						schemas = {
+							kubernetes = "*.yaml",
+							["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
+							["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+							["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+						},
+					},
+				},
+			},
 		},
 
 		-- you can do any additional lsp server setup here
@@ -136,5 +152,8 @@ return {
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 		-- require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
 		require("mason-lspconfig").setup_handlers({ setup })
+
+		-- https://templ.guide/commands-and-tools/ide-support
+		vim.filetype.add({ extension = { templ = "templ" } })
 	end,
 }

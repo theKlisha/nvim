@@ -35,7 +35,7 @@ local delete_buffer_force = function()
 	require("mini.bufremove").delete(0, true)
 end
 
-local open_file_tree = "<cmd>Neotree source=filesystem position=float dir=./ reveal_force_cwd<cr>";
+local open_file_tree = "<cmd>Neotree source=filesystem position=float dir=./ reveal_force_cwd<cr>"
 
 local open_file_picker = function()
 	require("telescope.builtin").find_files()
@@ -55,7 +55,7 @@ local open_last_picker = function()
 end
 
 local global_search_in_workspace = function()
-    require("telescope.builtin").live_grep()
+	require("telescope.builtin").live_grep()
 end
 
 local exec = function(cmd)
@@ -65,9 +65,9 @@ local exec = function(cmd)
 end
 
 local sh = function(cmd)
-    return function()
-        vim.fn.system(cmd)
-    end
+	return function()
+		vim.fn.system(cmd)
+	end
 end
 
 return {
@@ -125,15 +125,7 @@ return {
 			{ "sb", git_blame_line, description = "Blame line (Git)" },
 		},
 		funcs = {
-			-- { telescope("help_tags"), description = "Find help pages" },
-			-- { telescope("colorscheme", { enable_preview = true }), desc = "Colorscheme with preview" },
-			-- { telescope("oldfiles"), description = "Find Recent files" },
 			{ sh([[tmux new-window -n "nvim config" -c ~/.config/nvim/ nvim]]), description = "Open configuration" },
-			{ exec([[Lazy]]), description = "Open plugin manager" },
-			{ exec([[Alpha]]), description = "Open home screen" },
-			{ exec([[LspInfo]]), description = "Open LSP info" },
-			{ exec([[Mason]]), description = "Open LSP server manager" },
-			{ exec([[BufferLineSortByRelativeDirectory]]), description = "Sort buffers by relative directory" },
 		},
 		select_prompt = "",
 		include_builtin = true,

@@ -26,7 +26,8 @@ return {
 			follow_current_file = { enabled = true },
 		},
 		window = {
-			width = 45,
+			position = "float",
+			width = 80,
 			mappings = {
 				["<space>"] = "none",
 			},

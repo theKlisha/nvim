@@ -20,9 +20,15 @@ return {
 
 		return {
 			defaults = {
+				layout_strategy = "vertical",
+				layout_config = {
+					prompt_position = "top",
+					-- height = vim.o.lines -10, -- maximally available lines
+					-- width = vim.o.columns -10, -- maximally available columns
+					-- preview_height = 0.8, -- 60% of available lines
+				},
 				prompt_prefix = " ",
 				selection_caret = " ",
-				path_display = { "smart" },
 				mappings = {
 					i = {
 						["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,

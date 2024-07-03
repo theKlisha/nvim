@@ -78,21 +78,21 @@ return {
 			-- shamelessly copied from https://docs.helix-editor.com/keymap.html
 
 			-- Misc
-			{ "=", format_buffer, description = "Format buffer (LSP)" },
+			{ "<leader>=", format_buffer, description = "Format buffer (LSP)" },
 
 			-- Space mode
 			{ "<leader>f", open_file_picker, description = "Open file picker" },
 			{ "<leader>F", open_file_picker_at_cwd, description = "Open file picker at current working directory" }, -- FIXME
 			{ "<leader>e", open_file_tree, description = "Open file tree" },
 			{ "<leader>b", open_buffer_picker, description = "Open jumplist picker" },
-			{ "<leader>k", vim.lsp.buf.hover, description = "Show documentation for item under cursor in a popup (LSP)" },
-			{ "<leader>i", vim.lsp.buf.signature_help, description = "Show signature information (LSP)" },
-			{ "<leader>s", vim.lsp.buf.document_symbol, description = "Open document symbol picker (LSP)" },
-			{ "<leader>S", vim.lsp.buf.workspace_symbol, description = "Open workspace symbol picker (LSP)" },
-			{ "<leader>d", vim.diagnostic.setloclist, description = "Open document diagnostics picker (LSP)" }, -- FIXME
-			{ "<leader>D", vim.diagnostic.open_float, description = "Open workspace diagnostics picker (LSP)" }, -- FIXME
-			{ "<leader>r", vim.lsp.buf.rename, description = "Rename symbol (LSP)" },
-			{ "<leader>a", vim.lsp.buf.code_action, description = "Apply code action (LSP)" },
+			-- { "<leader>k", vim.lsp.buf.hover, description = "Show documentation for item under cursor in a popup (LSP)" },
+			-- { "<leader>i", vim.lsp.buf.signature_help, description = "Show signature information (LSP)" },
+			-- { "<leader>s", vim.lsp.buf.document_symbol, description = "Open document symbol picker (LSP)" },
+			-- { "<leader>S", vim.lsp.buf.workspace_symbol, description = "Open workspace symbol picker (LSP)" },
+			-- { "<leader>d", vim.diagnostic.setloclist, description = "Open document diagnostics picker (LSP)" }, -- FIXME
+			-- { "<leader>D", vim.diagnostic.open_float, description = "Open workspace diagnostics picker (LSP)" }, -- FIXME
+			-- { "<leader>r", vim.lsp.buf.rename, description = "Rename symbol (LSP)" },
+			-- { "<leader>a", vim.lsp.buf.code_action, description = "Apply code action (LSP)" },
 			{ "<leader>'", open_last_picker, description = "Open last fuzzy picker" },
 			{ "<leader>w", "<c-w>", description = "Enter window mode" },
 			-- p	Paste system clipboard after selections	paste_clipboard_after
@@ -104,7 +104,7 @@ return {
 			{ "<leader>?", "<cmd>Legendary<cr>", description = "Open command palette" },
 
 			-- Goto mode
-			{ "gi", vim.lsp.buf.implementation, description = "Go to implementation (LSP)" },
+			-- { "gi", vim.lsp.buf.implementation, description = "Go to implementation (LSP)" },
 			{ "gd", "<cmd>Trouble lsp_definitions<CR>", description = "LSP Definitions" },
 			{ "gr", "<cmd>Trouble lsp_references<CR>", description = "Go to references (LSP)" },
 			{ "g.", "<cmd>`.<CR>", description = "Go to last modification in current file" },

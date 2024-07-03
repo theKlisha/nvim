@@ -31,7 +31,7 @@ return {
 				selection_caret = " ",
 				mappings = {
 					i = {
-						["<C-t>"] = require("trouble.providers.telescope").open_with_trouble,
+						["<C-t>"] = require("trouble.sources.telescope").open,
 						["<C-j>"] = actions.move_selection_next,
 						["<C-k>"] = actions.move_selection_previous,
 						["<C-J>"] = actions.cycle_history_next,
@@ -40,7 +40,7 @@ return {
 						["<C-c>"] = actions.close,
 					},
 					n = {
-						["t"] = require("trouble.providers.telescope").open_with_trouble,
+						["t"] = require("trouble.sources.telescope").open,
 						["j"] = actions.move_selection_next,
 						["k"] = actions.move_selection_previous,
 						["J"] = actions.cycle_history_next,

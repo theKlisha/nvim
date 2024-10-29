@@ -10,7 +10,7 @@ return {
 				spacing = 3,
 				align = "right",
 			},
-			window = {
+			win = {
 				border = "rounded",
 				position = "bottom",
 				margin = { 0, 4, 2, 3 },

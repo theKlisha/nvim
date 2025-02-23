@@ -22,14 +22,13 @@ vim.opt.fillchars = {
 	-- diff          '-'             deleted lines of the 'diff' option
 	-- eob           '~'             empty lines below the end of a buffer
 
-	-- requires neovim nightly
-	-- horiz = '━',
-	-- horizup = '┻',
-	-- horizdown = '┳',
-	-- vert = '┃',
-	-- vertleft = '┫',
-	-- vertright = '┣',
-	-- verthoriz = '╋'
+	horiz = '━',
+	horizup = '┻',
+	horizdown = '┳',
+	vert = '┃',
+	vertleft = '┫',
+	vertright = '┣',
+	verthoriz = '╋'
 }
 vim.opt.foldmethod = "indent" -- fold based on indent level
 vim.opt.formatoptions:remove({ "c", "r", "o" }) -- This is a sequence of letters which describes how automatic formatting is to be done

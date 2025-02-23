@@ -6,11 +6,16 @@ return {
 		end,
 	},
 	{
-		"folke/trouble.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		cmd = "Trouble",
+		"echasnovski/mini.cursorword",
+		opts = { delay = 0 },
 		config = function(_, opts)
-			require("trouble").setup(opts)
+			require("mini.cursorword").setup(opts)
+		end,
+	},
+	{
+		"echasnovski/mini.files",
+		config = function(_, opts)
+			require("mini.files").setup(opts)
 		end,
 	},
 	{

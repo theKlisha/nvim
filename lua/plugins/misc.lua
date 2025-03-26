@@ -13,12 +13,6 @@ return {
 		end,
 	},
 	{
-		"echasnovski/mini.files",
-		config = function(_, opts)
-			require("mini.files").setup(opts)
-		end,
-	},
-	{
 		"tpope/vim-sleuth",
 		event = { "BufReadPre", "BufNewFile" },
 	},

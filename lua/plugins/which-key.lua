@@ -57,16 +57,9 @@ return {
 			desc = "Global search in workspace directory",
 		},
 		{
-			"<leader>E",
+			"<leader>e",
 			"<cmd>Neotree source=filesystem position=float dir=./ reveal_force_cwd<cr>",
 			desc = "Open file tree",
-		},
-		{
-			"<leader>e",
-			function()
-				require("mini.files").open()
-			end,
-			desc = "Delete Buffer (Force)",
 		},
 		{
 			"mq",

@@ -13,6 +13,14 @@ return { -- LSP Configuration & Plugins
 		-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
 		{ "folke/neodev.nvim", opts = {} },
+
+		{
+			"nvim-java/nvim-java",
+			opts = {},
+			config = function ()
+				require('java').setup()
+			end,
+		},
 	},
 	config = function()
 		--  This function gets run when an LSP attaches to a particular buffer.
@@ -205,5 +213,6 @@ return { -- LSP Configuration & Plugins
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
 		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
 	end,
 }

@@ -42,6 +42,20 @@ return {
 			desc = "Open file picker",
 		},
 		{
+			"<leader>s",
+			function()
+				require("telescope.builtin").document_symbols()
+			end,
+			desc = "Find document symbols",
+		},
+		{
+			"<leader>s",
+			function()
+				require("telescope.builtin").lsp_dynamic_workspace_symbols()
+			end,
+			desc = "Find workspace symbols",
+		},
+		{
 			"<leader>b",
 			function()
 				local opts = require("telescope.themes").get_dropdown({ shorten_path = true })
@@ -77,8 +91,10 @@ return {
 		},
 
 		-- GoTo mode
-		{ "gd", "<cmd>Trouble lsp_definitions<CR>", desc = "LSP Definitions" },
-		{ "gr", "<cmd>Trouble lsp_references<CR>",  desc = "Go to references (LSP)" },
+		{ "gr", vim.lsp.buf.definition, "Go to definition" },
+		{ "gD", "<cmd>Trouble lsp_definitions<CR>", desc = "Go to definitions with Trouble" },
+		{ "gr", vim.lsp.buf.references, "Go to references" },
+		{ "gR", "<cmd>Trouble lsp_references<CR>",  desc = "Go to references with Trouble" },
 
 		-- Source control mode
 		{

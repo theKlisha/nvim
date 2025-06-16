@@ -188,6 +188,22 @@ return { -- LSP Configuration & Plugins
 					},
 				},
 			},
+
+			jdtls = {
+				settings = {
+					java = {
+						configuration = {
+							runtimes = {
+								{
+									name = "OpenJDK-17",
+									path = "/Users/gjanysek/.jenv/versions/17",
+									default = true,
+								}
+							}
+						}
+					}
+				}
+			},
 		}
 
 		-- Add custom filetypes

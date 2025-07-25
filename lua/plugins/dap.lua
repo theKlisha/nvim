@@ -30,9 +30,9 @@ return {
 		return {
 			-- Basic debugging keymaps, feel free to change to your liking!
 			{ "<F5>", dap.continue, desc = "Debug: Start/Continue" },
-			{ "<F9>", dap.step_into, desc = "Debug: Step Into" },
-			{ "<F8>", dap.step_over, desc = "Debug: Step Over" },
-			{ "<F7>", dap.step_out, desc = "Debug: Step Out" },
+			{ "<F6>", dap.step_out, desc = "Debug: Step Out" },
+			{ "<F7>", dap.step_over, desc = "Debug: Step Over" },
+			{ "<F8>", dap.step_into, desc = "Debug: Step Into" },
 			{ "<leader>B", dap.toggle_breakpoint, desc = "Debug: Toggle Breakpoint" },
 			-- {
 			--   '<leader>B',
@@ -42,7 +42,15 @@ return {
 			--   desc = 'Debug: Set Breakpoint',
 			-- },
 			-- Toggle to see last session result. Without this, you can't see session output in case of unhandled exception.
-			{ "<F7>", dapui.toggle, desc = "Debug: See last session result." },
+			{ "<F10>", dapui.toggle, desc = "Debug: See last session result" },
+			{
+				"<F12>",
+				function()
+					dapui.float_element("repl")
+				end,
+				desc = "Debug: Open repl",
+			},
+
 			unpack(keys),
 		}
 	end,
@@ -70,22 +78,58 @@ return {
 		-- Dap UI setup
 		-- For more information, see |:help nvim-dap-ui|
 		dapui.setup({
-			-- Set icons to characters that are more likely to work in every terminal.
-			--    Feel free to remove or use ones that you like more! :)
-			--    Don't feel like these are good choices.
-			icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-			controls = {
-				icons = {
-					pause = "⏸",
-					play = "▶",
-					step_into = "⏎",
-					step_over = "⏭",
-					step_out = "⏮",
-					step_back = "b",
-					run_last = "▶▶",
-					terminate = "⏹",
-					disconnect = "⏏",
+			icons = { expanded = "", collapsed = "", current_frame = "" },
+			mappings = {
+				-- Use a table to apply multiple mappings
+				expand = { "<CR>", "<2-LeftMouse>" },
+				open = "o",
+				remove = "d",
+				edit = "e",
+				repl = "r",
+				toggle = "t",
+			},
+			element_mappings = {},
+			expand_lines = vim.fn.has("nvim-0.7") == 1,
+			force_buffers = true,
+			layouts = {
+				{
+					elements = { "console" },
+					size = 20,
+					position = "top",
 				},
+				{
+					elements = { "breakpoints", "watches" },
+					size = 20,
+					position = "bottom",
+				},
+			},
+			floating = {
+				max_height = nil,
+				max_width = nil,
+				border = "single",
+				mappings = {
+					["close"] = { "q", "<Esc>" },
+				},
+			},
+			controls = {
+				enabled = vim.fn.exists("+winbar") == 1,
+				element = "repl",
+				icons = {
+					pause = "",
+					play = "",
+					step_into = "",
+					step_over = "",
+					step_out = "",
+					step_back = "",
+					run_last = "",
+					terminate = "",
+					disconnect = "",
+				},
+			},
+			render = {
+				max_type_length = nil, -- Can be integer or nil.
+				max_value_lines = 100, -- Can be integer or nil.
+				indent = 1,
 			},
 		})
 

@@ -29,8 +29,7 @@ return {
 		{
 			"<leader>'",
 			function()
-				local opts = require("telescope.themes").get_dropdown({ shorten_path = true })
-				require("telescope.builtin").buffers(opts)
+				require("telescope.builtin").resume()
 			end,
 			desc = "Open last fuzzy picker",
 		},

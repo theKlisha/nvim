@@ -19,6 +19,7 @@ return { -- LSP Configuration & Plugins
 			opts = {},
 			config = function ()
 				require('java').setup()
+				require('lspconfig').jdtls.setup({})
 			end,
 		},
 	},

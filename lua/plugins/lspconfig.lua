@@ -17,9 +17,9 @@ return { -- LSP Configuration & Plugins
 		{
 			"nvim-java/nvim-java",
 			opts = {},
-			config = function ()
-				require('java').setup()
-				require('lspconfig').jdtls.setup({})
+			config = function()
+				require("java").setup()
+				require("lspconfig").jdtls.setup({})
 			end,
 		},
 	},
@@ -184,7 +184,8 @@ return { -- LSP Configuration & Plugins
 							kubernetes = "kubectl-edit-*.yaml",
 							["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
 							["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
-							["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+							["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] =
+							"*docker-compose*.{yml,yaml}",
 						},
 					},
 				},
@@ -199,11 +200,11 @@ return { -- LSP Configuration & Plugins
 									name = "OpenJDK-17",
 									path = "/Users/gjanysek/.jenv/versions/17",
 									default = true,
-								}
-							}
-						}
-					}
-				}
+								},
+							},
+						},
+					},
+				},
 			},
 		}
 
@@ -229,7 +230,9 @@ return { -- LSP Configuration & Plugins
 		-- Set the border style for LSP windows
 		require("lspconfig.ui.windows").default_options.border = "rounded"
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" })
-		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" })
-		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, { virtual_text = false })
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help,
+			{ border = "rounded" })
+		vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
+			{ virtual_text = false })
 	end,
 }

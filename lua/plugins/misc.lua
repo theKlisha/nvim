@@ -39,11 +39,11 @@ return {
 		end,
 		keys = {
 			"<leader>c", -- Default invocation prefix
-			{ "<leader>c", "<cmd>TextCaseOpenTelescope<CR>", mode = { "n", "x" }, desc = "Change case" },
-			{ "<leader>cs", '<cmd>lua require("textcase").current_word("to_snake_case")<cr>', mode = { "n", "x" }, desc = "Change to snake case" },
+			{ "<leader>c",  "<cmd>TextCaseOpenTelescope<CR>",                                    mode = { "n", "x" }, desc = "Change case" },
+			{ "<leader>cs", '<cmd>lua require("textcase").current_word("to_snake_case")<cr>',    mode = { "n", "x" }, desc = "Change to snake case" },
 			{ "<leader>cC", '<cmd>lua require("textcase").current_word("to_constant_case")<cr>', mode = { "n", "x" }, desc = "Change to constant case" },
-			{ "<leader>cc", '<cmd>lua require("textcase").current_word("to_camel_case")<cr>', mode = { "n", "x" }, desc = "Change to camel case" },
-			{ "<leader>cp", '<cmd>lua require("textcase").current_word("to_pascal_case")<cr>', mode = { "n", "x" }, desc = "Change to pascal case" },
+			{ "<leader>cc", '<cmd>lua require("textcase").current_word("to_camel_case")<cr>',    mode = { "n", "x" }, desc = "Change to camel case" },
+			{ "<leader>cp", '<cmd>lua require("textcase").current_word("to_pascal_case")<cr>',   mode = { "n", "x" }, desc = "Change to pascal case" },
 		},
 		cmd = {
 			-- NOTE: The Subs command name can be customized via the option "substitude_command_name"

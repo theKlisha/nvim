@@ -12,10 +12,13 @@ gui:
     selectedLineBgColor:
       - "#404040"
 git:
-  showGraph: "always"
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never
+
+services:
+  'github.com': 'github:github.com'
+  'gitlab-app.eng.qops.net': 'gitlab:gitlab-app.eng.qops.net'
 
 os:
   edit: "nvim {{filename}}"

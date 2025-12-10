@@ -19,7 +19,6 @@ return {
 	{
 		"mg979/vim-visual-multi",
 		branch = "master",
-		event = "InsertEnter",
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",

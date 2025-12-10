@@ -1,88 +1,82 @@
 return {
 	"nvim-neo-tree/neo-tree.nvim",
+	version = "*",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 	},
-	cmd = "Neotree",
-	deactivate = function()
-		vim.cmd([[Neotree close]])
-	end,
-	init = function()
-		vim.g.neo_tree_remove_legacy_commands = 1
-		if vim.fn.argc() == 1 then
-			local stat = vim.loop.fs_stat(vim.fn.argv(0))
-			if stat and stat.type == "directory" then
-				require("neo-tree")
-			end
-		end
-	end,
+	lazy = false, -- neotree will lazy load itself
+	keys = {
+		{ "<leader>e", ":Neotree source=filesystem<cr>", desc = "Open file tree",       silent = true },
+		{ "<leader>b", ":Neotree source=buffers<cr>",    desc = "Open buffer tree",     silent = true },
+		{ "se",        ":Neotree source=git_status<cr>", desc = "Open git status tree", silent = true },
+	},
+	---@module "neo-tree"
+	---@type neotree.Config?
 	opts = {
-		-- close_if_last_window = true,
-		popup_border_style = "rounded",
-		filesystem = {
-			bind_to_cwd = false,
-			follow_current_file = { enabled = true },
-		},
 		window = {
 			position = "float",
-			width = 80,
+			popup = {
+				border = "rounded",
+				size = { width = 0.8, height = 0.9 },
+			},
 			mappings = {
 				["<space>"] = "none",
 			},
+		},
+		buffers = {
+			bind_to_cwd = false,
+			follow_current_file = { enabled = true },
+		},
+		filesystem = {
+			bind_to_cwd = false,
+			follow_current_file = { enabled = true },
 		},
 		default_component_configs = {
 			container = {
 				enable_character_fade = true,
 			},
 			indent = {
-				indent_size = 2,
+				indent_size = 3,
 				padding = 1,
 				-- indent guides
 				with_markers = true,
 				indent_marker = "│",
 				last_indent_marker = "└",
-				highlight = "NeoTreeIndentMarker",
 				-- expander config, needed for nesting files
 				with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-				expander_collapsed = "",
-				expander_expanded = "",
-				expander_highlight = "NeoTreeExpander",
 			},
 			icon = {
-				folder_closed = "",
-				folder_open = "",
-				folder_empty = "ﰊ",
 				default = "",
-				highlight = "NeoTreeFileIcon",
-			},
-			modified = {
-				symbol = "",
-				highlight = "NeoTreeModified",
+				folder_closed = "",
+				folder_empty = "",
+				folder_empty_open = "",
+				folder_open = "",
+				use_filtered_colors = true,
 			},
 			name = {
-				trailing_slash = false,
 				use_git_status_colors = false,
-				highlight = "NeoTreeFileName",
+			},
+			modified = {
+				enabled = true,
+				symbol = "unsaved!",
+				highlight = "ErrorMsg",
 			},
 			git_status = {
 				symbols = {
 					-- Change type
-					added = "✚", -- or "✚", but this is redundant info if you use git_status_colors on the name
-					modified = "", -- or "", but this is redundant info if you use git_status_colors on the name
-					deleted = "", -- this can only be used in the git_status source
-					renamed = "", -- this can only be used in the git_status source
+					added = "+", -- or "✚", but this is redundant info if you use git_status_colors on the name
+					modified = "~", -- or "", but this is redundant info if you use git_status_colors on the name
+					deleted = "-", -- this can only be used in the git_status source
+					renamed = "r", -- this can only be used in the git_status source
 					-- Status type
-					untracked = "",
-					ignored = "",
-					unstaged = "",
-					staged = "",
-					conflict = "",
+					untracked = "[?]",
+					ignored = "[/]",
+					unstaged = "[M]",
+					staged = "[A]",
+					conflict = "[!]",
 				},
-			},
-			buffers = {
-				follow_current_file = { enabled = true }, -- This will find and focus the file in the active buffer every time the current file is changed while the tree is open.
 			},
 		},
 	},

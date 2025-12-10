@@ -55,24 +55,11 @@ return {
 			desc = "Find workspace symbols",
 		},
 		{
-			"<leader>b",
-			function()
-				local opts = require("telescope.themes").get_dropdown({ shorten_path = true })
-				require("telescope.builtin").buffers(opts)
-			end,
-			desc = "Open buffer picker",
-		},
-		{
 			"<leader>/",
 			function()
 				require("telescope.builtin").live_grep()
 			end,
 			desc = "Global search in workspace directory",
-		},
-		{
-			"<leader>e",
-			"<cmd>Neotree source=filesystem position=float dir=./ reveal_force_cwd<cr>",
-			desc = "Open file tree",
 		},
 		{
 			"mq",
@@ -108,6 +95,5 @@ return {
 		{ "sr", require("gitsigns").reset_hunk,                             desc = "Git reset hunk" },
 		{ "sR", require("gitsigns").reset_buffer,                           desc = "Git reset buffer" },
 		{ "sb", require("gitsigns").blame_line,                             desc = "Blame line (Git)" },
-		{ "se", "<cmd>Neotree source=git_status position=float dir=./<cr>", desc = "Open git status file tree" },
 	},
 }

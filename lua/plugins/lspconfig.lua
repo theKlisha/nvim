@@ -197,47 +197,6 @@ local servers = {
 	rust_analyzer = {},
 
 	jdtls = {
-		-- settings = {
-		-- 	java = {
-		-- 		---@param dispatchers? vim.lsp.rpc.Dispatchers
-		-- 		---@param config vim.lsp.ClientConfig
-		-- 		cmd = function(dispatchers, config)
-		-- 			local data_dir = vim.fn.stdpath('cache') .. '/jdtls/workspace/' .. config.root_dir
-		-- 			return {
-		-- 				-- Shamelessly copied form
-		-- 				-- https://github.com/nvim-java/nvim-java/blob/d196b25eda89ae957110f2966d1753889dc197b2/lua/java-core/ls/servers/jdtls/cmd.lua#L67
-		-- 				"jdtls",
-		-- 				"-Dosgi.bundles.defaultStartLevel=4",
-		-- 				"-Declipse.product=org.eclipse.jdt.ls.core.product",
-		-- 				"-Dosgi.checkConfiguration=true",
-		-- 				"-Dosgi.sharedConfiguration.area.readOnly=true",
-		-- 				"-Dosgi.configuration.cascaded=true",
-		-- 				"-Xms2G",
-		-- 				"--add-modules=ALL-SYSTEM",
-		--
-		-- 				"--add-opens",
-		-- 				"java.base/java.util=ALL-UNNAMED",
-		--
-		-- 				"--add-opens",
-		-- 				"java. base/java. lang=ALL-UNNAMED",
-		--
-		-- 				"-data", data_dir
-		-- 			}
-		-- 		end,
-		-- 		-- configuration = {
-		-- 		-- 	runtimes = {
-		-- 		-- 		{
-		-- 		-- 			name = "OpenJDK-17",
-		-- 		-- 			path = "/Users/gjanysek/.jenv/versions/17",
-		-- 		-- 			default = true,
-		-- 		-- 		},
-		-- 		-- 	},
-		-- 		-- },
-		-- 	},
-		-- },
-		settings = {
-			java = {}
-		},
 		init_options = {
 			bundles = {
 				vim.fn.glob(os.getenv("JDTLS_VSCJAVA_DEBUG") .. "com.microsoft.java.debug.plugin-*.jar", 1),

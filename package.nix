@@ -44,11 +44,6 @@ let
   extraConfig = {
     wrapperArgs = [
       "--set"
-      "NVIM_PACKAGE_MANAGER"
-      "NIX"
-    ]
-    ++ [
-      "--set"
       "JDTLS_VSCJAVA_DEBUG"
       # https://codeberg.org/mfussenegger/nvim-jdtls#java-debug-bundle-configuration
       "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/"

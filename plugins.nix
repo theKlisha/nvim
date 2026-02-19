@@ -73,19 +73,4 @@ with vimPlugins;
       sha256 = "sha256-L89x9n2OKCyUuWaNXPkuNGBEU9EBX+9zRlzS1Kfw428=";
     };
   })
-
-  # TODO: upgrade
-  # override treesitter with previous version from master branch
-  # default branch contains breaking API changes
-  # (vimUtils.buildVimPlugin {
-  #   pname = "nvim-treesitter";
-  #   version = "2025-05-24";
-  #   homepage = "https://github.com/nvim-treesitter/nvim-treesitter/tree/master";
-  #   src = fetchFromGitHub {
-  #     owner = "nvim-treesitter";
-  #     repo = "nvim-treesitter";
-  #     rev = "42fc28ba918343ebfd5565147a42a26580579482";
-  #     sha256 = "sha256-CVs9FTdg3oKtRjz2YqwkMr0W5qYLGfVyxyhE3qnGYbI=";
-  #   };
-  # })
 ]

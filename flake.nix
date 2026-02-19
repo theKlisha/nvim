@@ -27,8 +27,6 @@
           packages.neovim-next = pkgs.writeScriptBin "vn" ''
             exec ${packages.neovim}/bin/nvim "$@"
           '';
-
-          packages.write-lock = pkgs.callPackage ./mini.nix { };
         };
     };
 }

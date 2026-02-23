@@ -197,6 +197,9 @@ local servers = {
 	rust_analyzer = {},
 
 	jdtls = {
+		settings = {
+			java = {}
+		},
 		init_options = {
 			bundles = {
 				vim.fn.glob(os.getenv("JDTLS_VSCJAVA_DEBUG") .. "com.microsoft.java.debug.plugin-*.jar", 1),

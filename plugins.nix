@@ -34,6 +34,7 @@ with vimPlugins;
 
   dressing-nvim
   fidget-nvim
+  gitsigns-nvim
   mini-base16
   mini-bufremove
   mini-cursorword
@@ -58,19 +59,6 @@ with vimPlugins;
       repo = "oolong.nvim";
       rev = "4eae82334dba2ff21b27d0cc8469319afcd9b54e";
       sha256 = "sha256-iXovbl/+kysa1v5sHjLj2YArvK6gLP3kM4yg3aM76r8=";
-    };
-  })
-
-  (vimUtils.buildVimPlugin {
-    pname = "gitsigns";
-    version = "2026-01-09";
-    homepage = "https://github.com/lewis6991/gitsigns.nvim";
-    doCheck = false;
-    src = fetchFromGitHub {
-      owner = "lewis6991";
-      repo = "gitsigns.nvim";
-      rev = "42d6aed4e94e0f0bbced16bbdcc42f57673bd75e";
-      sha256 = "sha256-L89x9n2OKCyUuWaNXPkuNGBEU9EBX+9zRlzS1Kfw428=";
     };
   })
 ]

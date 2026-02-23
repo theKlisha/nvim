@@ -24,9 +24,6 @@
           overlayAttrs = { inherit (packages) neovim; };
           packages.default = packages.neovim;
           packages.neovim = pkgs.callPackage ./package.nix { };
-          packages.neovim-next = pkgs.writeScriptBin "vn" ''
-            exec ${packages.neovim}/bin/nvim "$@"
-          '';
         };
     };
 }

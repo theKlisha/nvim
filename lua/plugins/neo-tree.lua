@@ -1,7 +1,6 @@
 require("which-key").add({
-	{ "<leader>e", ":Neotree source=filesystem<cr>", desc = "Open file tree",       silent = true },
-	{ "<leader>b", ":Neotree source=buffers<cr>",    desc = "Open buffer tree",     silent = true },
-	{ "se",        ":Neotree source=git_status<cr>", desc = "Open git status tree", silent = true },
+	{ "<leader>e", ":Neotree filesystem reveal<cr>", desc = "Open file tree",       silent = true },
+	{ "se",        ":Neotree git_status<cr>", desc = "Open git status tree", silent = true },
 })
 
 require("neo-tree").setup(
@@ -17,12 +16,6 @@ require("neo-tree").setup(
 			mappings = {
 				["<space>"] = "none",
 			},
-		},
-		buffers = {
-			follow_current_file = { enabled = true, leave_dirs_open = true },
-		},
-		filesystem = {
-			follow_current_file = { enabled = true, leave_dirs_open = true },
 		},
 		default_component_configs = {
 			container = {

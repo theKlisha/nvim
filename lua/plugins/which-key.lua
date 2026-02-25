@@ -31,41 +31,6 @@ require("which-key").add({
 		desc = "Open last fuzzy picker",
 	},
 	{
-		"<leader>f",
-		function()
-			require("telescope.builtin").find_files()
-		end,
-		desc = "Open file picker",
-	},
-	{
-		"<leader>s",
-		function()
-			require("telescope.builtin").document_symbols()
-		end,
-		desc = "Find document symbols",
-	},
-	{
-		"<leader>s",
-		function()
-			require("telescope.builtin").lsp_dynamic_workspace_symbols()
-		end,
-		desc = "Find workspace symbols",
-	},
-	{
-		"<leader>/",
-		function()
-			require("telescope.builtin").live_grep()
-		end,
-		desc = "Global search in workspace directory",
-	},
-	{
-		"<leader>q",
-		function()
-			require("telescope.builtin").quickfix()
-		end,
-		desc = "Find in quickfix list",
-	},
-	{
 		"mq",
 		function()
 			require("mini.bufremove").delete(0, false)
@@ -81,9 +46,9 @@ require("which-key").add({
 	},
 
 	-- GoTo mode
-	{ "gd", vim.lsp.buf.definition, desc = "Go to definition" },
+	{ "gd", vim.lsp.buf.definition,     desc = "Go to definition" },
 	{ "gi", vim.lsp.buf.implementation, desc = "Go to implementation" },
-	{ "gr", vim.lsp.buf.references, desc = "Go to references" },
+	{ "gr", vim.lsp.buf.references,     desc = "Go to references" },
 	-- {
 	-- 	"gD",
 	-- 	function()

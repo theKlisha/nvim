@@ -58,3 +58,49 @@ require("telescope").setup({
 		},
 	},
 })
+
+require("which-key").add({
+	{
+		"<leader>b",
+		function()
+			require("telescope.builtin").buffers()
+		end
+		,
+		desc = "Open buffer picker",
+	},
+	{
+		"<leader>f",
+		function()
+			require("telescope.builtin").find_files()
+		end,
+		desc = "Open file picker",
+	},
+	{
+		"<leader>s",
+		function()
+			require("telescope.builtin").document_symbols()
+		end,
+		desc = "Find document symbols",
+	},
+	{
+		"<leader>s",
+		function()
+			require("telescope.builtin").lsp_dynamic_workspace_symbols()
+		end,
+		desc = "Find workspace symbols",
+	},
+	{
+		"<leader>/",
+		function()
+			require("telescope.builtin").live_grep()
+		end,
+		desc = "Global search in workspace directory",
+	},
+	{
+		"<leader>q",
+		function()
+			require("telescope.builtin").quickfix()
+		end,
+		desc = "Find in quickfix list",
+	},
+})

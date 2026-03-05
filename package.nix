@@ -11,6 +11,9 @@
 
   # runtime deps
   fzf,
+  git,
+  lazygit,
+
   gopls,
   jdt-language-server,
   lombok,
@@ -60,6 +63,9 @@ let
       ":"
       (lib.makeBinPath [
         fzf # used by telescope-fzy-native-nvim
+        git
+        lazygit # git tui
+
         gopls # Go language server: https://go.dev/gopls
         jdt-language-server # Java language server: https://github.com/eclipse-jdtls/eclipse.jdt.ls
         lua-language-server # Lua language server: https://github.com/LuaLS/lua-language-server

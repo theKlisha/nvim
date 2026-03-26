@@ -19,6 +19,7 @@
   lombok,
   lua-language-server,
   nil,
+  sleek,
   typescript-go,
 
   pkgs,
@@ -70,6 +71,7 @@ let
         jdt-language-server # Java language server: https://github.com/eclipse-jdtls/eclipse.jdt.ls
         lua-language-server # Lua language server: https://github.com/LuaLS/lua-language-server
         nil # Nix language server: https://github.com/oxalica/nil
+        sleek # small, fast and deterministic SQL formatter
         typescript-go # TS language server: https://github.com/microsoft/typescript-go
       ])
     ];

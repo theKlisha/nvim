@@ -61,4 +61,17 @@ with vimPlugins;
       sha256 = "sha256-iXovbl/+kysa1v5sHjLj2YArvK6gLP3kM4yg3aM76r8=";
     };
   })
+
+  (vimUtils.buildVimPlugin {
+    pname = "Agentic";
+    version = "2025-04-19";
+    homepage = "https://github.com/carlos-algms/agentic.nvim";
+    doCheck = false; # no tests
+    src = fetchFromGitHub {
+      owner = "carlos-algms";
+      repo = "agentic.nvim";
+      rev = "f36092681e438af4b4862fc0543c78b2a41586db";
+      sha256 = "sha256-5bNpbupqRveqCgQ+jMSYIgqAQrqC7yOlt+avDsk95i4=";
+    };
+  })
 ]

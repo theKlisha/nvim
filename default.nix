@@ -1,11 +1,8 @@
 {
-  fetchFromGitHub,
   lib,
   neovim-unwrapped,
   neovimUtils,
   stdenv,
-  vimPlugins,
-  vimUtils,
   wrapNeovimUnstable,
   callPackage,
 

@@ -3,27 +3,44 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
   outputs =
-    { flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      imports = [ flake-parts.flakeModules.easyOverlay ];
+    {
+      self,
+      nixpkgs,
+    }:
+    let
+      inherit (nixpkgs) lib;
+      forAllSystems =
+        f:
+        nixpkgs.lib.genAttrs lib.systems.flakeExposed (
+          system:
+          f rec {
+            pkgs = import nixpkgs { inherit system; };
+            neovim = pkgs.callPackage ./default.nix { };
+          }
+        );
+    in
+    {
+      packages = forAllSystems (
+        { neovim, ... }:
+        {
+          default = neovim;
+          inherit neovim;
+        }
+      );
 
-      systems = [
-        "x86_64-linux"
-        "aarch64-linux"
-        "x86_64-darwin"
-        "aarch64-darwin"
-      ];
-
-      perSystem =
-        { pkgs, ... }:
-        rec {
-          overlayAttrs = { inherit (packages) neovim; };
-          packages.default = packages.neovim;
-          packages.neovim = pkgs.callPackage ./package.nix { };
-        };
+      overlays = forAllSystems (
+        { neovim, ... }:
+        {
+          default = neovim;
+          neovim = (
+            final: prev: {
+              inherit neovim;
+            }
+          );
+        }
+      );
     };
 }

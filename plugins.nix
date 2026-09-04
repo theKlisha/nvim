@@ -27,6 +27,7 @@ with vimPlugins;
   nvim-treesitter.withAllGrammars # https://github.com/nvim-treesitter/nvim-treesitter
   nvim-ts-context-commentstring # https://github.com/joosepalviste/nvim-ts-context-commentstring/
   comment-nvim # https://github.com/numToStr/Comment.nvim
+  tssorter-nvim # https://github.com/mtrajano/tssorter.nvim
 
   # telescope
   telescope-nvim # https://github.com/nvim-telescope/telescope.nvim

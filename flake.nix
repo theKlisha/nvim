@@ -35,6 +35,13 @@
         }
       );
 
+      checks = forAllSystems (
+        { neovim, ... }:
+        {
+          inherit neovim;
+        }
+      );
+
       overlays = forAllSystems (
         { neovim, ... }:
         {

@@ -42,6 +42,10 @@
         }
       );
 
+      hydraJobs = {
+        neovim = self.packages.x86_64-linux.neovim;
+      };
+
       overlays = forAllSystems (
         { neovim, ... }:
         {

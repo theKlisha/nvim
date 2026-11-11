@@ -1,6 +1,6 @@
-{ pulls, ... }:
+{ pulls, nixpkgs }:
 let
-  pkgs = import <nixpkgs> { };
+  pkgs = import nixpkgs { };
 
   prs = builtins.fromJSON (builtins.readFile pulls);
 

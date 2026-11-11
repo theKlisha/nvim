@@ -1,10 +1,6 @@
-# Hydra declarative-jobset generator. Hilights: the `pulls` arg is the
-# githubpulls input -- a JSON file of open PRs keyed by PR number. We emit one
-# flake jobset per PR (pinned to the PR head commit, so forks resolve too) plus
-# a static `main` jobset.
-{ nixpkgs, pulls, ... }:
+{ pulls, ... }:
 let
-  pkgs = import nixpkgs { };
+  pkgs = import <nixpkgs> { };
 
   prs = builtins.fromJSON (builtins.readFile pulls);
 

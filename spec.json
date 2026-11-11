@@ -1,7 +1,6 @@
 {
   "enabled": 1,
   "hidden": false,
-  "description": "Generate jobsets: main branch + one per open PR",
   "nixexprinput": "src",
   "nixexprpath": "jobsets.nix",
   "checkinterval": 300,
@@ -11,7 +10,6 @@
   "keepnr": 1,
   "inputs": {
     "src": { "type": "git", "value": "https://github.com/theKlisha/nvim.git main", "emailresponsible": false },
-    "nixpkgs": { "type": "git", "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable", "emailresponsible": false },
     "pulls": { "type": "githubpulls", "value": "theKlisha nvim", "emailresponsible": false }
   }
 }

@@ -2,7 +2,7 @@
   "enabled": 1,
   "hidden": false,
   "nixexprinput": "src",
-  "nixexprpath": "jobsets.nix",
+  "nixexprpath": "ci/jobsets.nix",
   "checkinterval": 300,
   "schedulingshares": 100,
   "enableemail": false,

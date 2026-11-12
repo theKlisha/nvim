@@ -11,9 +11,12 @@ let
     emailoverride = "";
   };
 
-  # PRs from a deleted fork have no head repo; skip them rather than
-  # failing the whole evaluation.
-  livePrs = builtins.filter (num: prs.${num}.head.repo != null) (builtins.attrNames prs);
+  # Only PRs from branches in my own repos: a fork PR would run untrusted
+  # code on the builder, with my GitHub token reachable from evaluation.
+  # A deleted fork (head.repo = null) falls out here too.
+  ownPrs = builtins.filter (
+    num: (prs.${num}.head.repo.owner.login or null) == "theKlisha"
+  ) (builtins.attrNames prs);
 
   prJobsets = builtins.listToAttrs (
     map (
@@ -25,7 +28,7 @@ let
         name = "pr-${num}";
         value = mkFlakeJobset "PR #${num}: ${pr.title}" "github:${pr.head.repo.owner.login}/${pr.head.repo.name}/${pr.head.sha}";
       }
-    ) livePrs
+    ) ownPrs
   );
 
   jobsets = prJobsets // {

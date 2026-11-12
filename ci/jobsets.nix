@@ -1,18 +1,19 @@
+# Run by Hydra's `.jobsets` jobset (see spec.json): one flake jobset for
+# main plus one per open PR. Fields left out keep Hydra's defaults.
 { pulls, ... }:
 let
   prs = builtins.fromJSON (builtins.readFile pulls);
 
   mkFlakeJobset = description: flake: {
-    enabled = 1;
-    hidden = false;
-    inherit description flake;
     type = 1;
-    checkinterval = 300;
-    schedulingshares = 100;
+    inherit description flake;
     enableemail = false;
     emailoverride = "";
-    keepnr = 3;
   };
+
+  # PRs from a deleted fork have no head repo; skip them rather than
+  # failing the whole evaluation.
+  livePrs = builtins.filter (num: prs.${num}.head.repo != null) (builtins.attrNames prs);
 
   prJobsets = builtins.listToAttrs (
     map (
@@ -24,7 +25,7 @@ let
         name = "pr-${num}";
         value = mkFlakeJobset "PR #${num}: ${pr.title}" "github:${pr.head.repo.owner.login}/${pr.head.repo.name}/${pr.head.sha}";
       }
-    ) (builtins.attrNames prs)
+    ) livePrs
   );
 
   jobsets = prJobsets // {

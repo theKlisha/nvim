@@ -1,15 +1,10 @@
 {
-  "enabled": 1,
-  "hidden": false,
-  "nixexprinput": "src",
+  "nixexprinput": "declInput",
   "nixexprpath": "ci/jobsets.nix",
-  "checkinterval": 300,
-  "schedulingshares": 100,
   "enableemail": false,
   "emailoverride": "",
   "keepnr": 1,
   "inputs": {
-    "src": { "type": "git", "value": "https://github.com/theKlisha/nvim.git main", "emailresponsible": false },
     "pulls": { "type": "githubpulls", "value": "theKlisha nvim", "emailresponsible": false }
   }
 }

@@ -1,7 +1,5 @@
-{ pulls, nixpkgs }:
+{ pulls, ... }:
 let
-  pkgs = import nixpkgs { };
-
   prs = builtins.fromJSON (builtins.readFile pulls);
 
   mkFlakeJobset = description: flake: {
@@ -34,9 +32,13 @@ let
   };
 in
 {
-  jobsets = pkgs.runCommand "jobsets.json" { } ''
-    cat >$out <<'EOF'
-    ${builtins.toJSON jobsets}
-    EOF
-  '';
+  # Plain derivation over the sandbox's /bin/sh, so evaluating this
+  # doesn't need a nixpkgs input (a full-history git clone in Hydra).
+  jobsets = derivation {
+    name = "jobsets.json";
+    system = builtins.currentSystem;
+    builder = "/bin/sh";
+    args = [ "-c" ''printf '%s' "$json" > "$out"'' ];
+    json = builtins.toJSON jobsets;
+  };
 }

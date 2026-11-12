@@ -10,7 +10,6 @@
   "keepnr": 1,
   "inputs": {
     "src": { "type": "git", "value": "https://github.com/theKlisha/nvim.git main", "emailresponsible": false },
-    "nixpkgs": { "type": "git", "value": "https://github.com/NixOS/nixpkgs.git nixos-unstable-small", "emailresponsible": false },
     "pulls": { "type": "githubpulls", "value": "theKlisha nvim", "emailresponsible": false }
   }
 }
